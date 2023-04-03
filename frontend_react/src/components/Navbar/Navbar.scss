@@ -1,0 +1,175 @@
+//style the navbar
+.app__navbar{
+  width: 100%;
+
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem;
+  //add slight opcaity to make the navbar appear above webpage
+  background: rgba(255,255,255,0.25);
+  //add a blur effect to the navbar
+  backdrop-filter: blur(4px);
+  //since blur property is not avilable for all browsers
+  -webkit-backdrop-filter: blur(4px);
+  //add a bareley noticable color
+  border:1px solid rgba(255,255,255,0.18);
+  //keep navbar on the top
+  position: fixed;
+  //make Navbar appear ontop of content
+  z-index:2
+}
+
+//style the navbar logo
+.app__navbar-logo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  //to target image inside of navbar logo
+  img{
+    width: 170px;
+    height: 35px;
+  }
+}
+
+//style the navbar links
+.app__navbar-links{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+  //target li item in navbar links
+  li{
+      margin: 0 1rem;
+      
+      //so user knows items are clickable
+      cursor: pointer;
+      flex-direction: column;
+      
+      //target div is for the dot above items in navbar
+      div{
+        width: 5px;
+        height: 5px;
+        background: transparent;
+        border-radius: 50%;
+        margin-bottom: 5px;
+      }
+      
+      //target anchor tag
+      a{
+        //use color from index.css
+        color: var(--gray-color);
+        text-decoration: none;
+        flex-direction: column;
+        text-transform: uppercase;
+        font-weight: 500%;
+        transition: all 0.3s ease-in-out;
+        font-family: Arial, Helvetica, sans-serif;
+
+        //refers to hover inside anchor tag
+        &:hover{
+          color: var(--secondary-color);
+        }
+      }
+
+      &:hover{
+        div{
+          background: var(--secondary-color);
+        }
+      }
+  }
+
+  //for mobile
+  @media screen and (max-width: 900px){
+    display:none;
+  }
+}
+
+.app__navbar-menu{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary-color);
+
+  // targets the two lines inside of the circle
+  svg{
+    width: 70%;
+    height: 70%;
+    color: var(--white-color);
+  }
+
+  div{
+    position: fixed;
+    top:0;
+    bottom:0;
+    right: 0;
+    z-index: 5;
+    padding: 1rem;
+    width:80%;
+    height: 100vh;
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    
+    background: url('../../assets/bgWhite.png');
+    background-color: var(--white-color);
+    background-size: cover;
+    background-repeat: repeat;
+    box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+
+    svg{
+      width: 35px;
+      height: 35px;
+      color: var(--secondary-color);
+      margin: 0.5rem 1rem;
+    }
+
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width:100%;
+      height: 100%;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    li{
+      margin: 1rem;
+
+      a{
+        color: var(--gray-color);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500%;
+        transition: all 0.3s ease-in-out;
+
+        //refers to hover inside anchor tag
+        &:hover{
+          color: var(--secondary-color);
+        }
+      }
+    }
+
+    @media screen and (min-width: 900px){
+      display:none;
+    }
+  }
+
+  @media screen and (min-width: 900px){
+    display:none;
+  }
+}
